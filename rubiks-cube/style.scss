@@ -1,0 +1,447 @@
+$size: 213px; // число кратное 3
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrap {
+  background-color: #ccc;
+  height: $size*3;
+  width: $size*3;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: $size*15;
+  &:hover {
+    .x1.y1.z1 {
+      transform: translate3d(-$size/3, -$size/3, -$size/3*2);
+    }
+    .x1.y1.z2 {
+      transform: translate3d(-$size/3, -$size/3, 0);
+    }
+    .x1.y1.z3 {
+      transform: translate3d(-$size/3, -$size/3, $size/3*2);
+    }
+    .x1.y2.z1 {
+      transform: translate3d(-$size/3, 0, -$size/3*2);
+    }
+    .x1.y2.z2 {
+      transform: translate3d(-$size/3, 0, 0);
+    }
+    .x1.y2.z3 {
+      transform: translate3d(-$size/3, 0, $size/3*2);
+    }
+    .x1.y3.z1 {
+      transform: translate3d(-$size/3, $size/3, -$size/3*2);
+    }
+    .x1.y3.z2 {
+      transform: translate3d(-$size/3, $size/3, 0);
+    }
+    .x1.y3.z3 {
+      transform: translate3d(-$size/3, $size/3, $size/3*2);
+    }
+    .x2.y1.z1 {
+      transform: translate3d(0, -$size/3, -$size/3*2);
+    }
+    .x2.y1.z2 {
+      transform: translate3d(0, -$size/3, 0);
+    }
+    .x2.y1.z3 {
+      transform: translate3d(0, -$size/3, $size/3*2);
+    }
+    .x2.y2.z1 {
+      transform: translate3d(0, 0, -$size/3*2);
+    }
+    .x2.y2.z2 {
+      transform: translate3d(0, 0, 0);
+    }
+    .x2.y2.z3 {
+      transform: translate3d(0, 0, $size/3*2);
+    }
+    .x2.y3.z1 {
+      transform: translate3d(0, $size/3, -$size/3*2);
+    }
+    .x2.y3.z2 {
+      transform: translate3d(0, $size/3, 0);
+    }
+    .x2.y3.z3 {
+      transform: translate3d(0, $size/3, $size/3*2);
+    }
+    .x3.y1.z1 {
+      transform: translate3d($size/3, -$size/3, -$size/3*2);
+    }
+    .x3.y1.z2 {
+      transform: translate3d($size/3, -$size/3, 0);
+    }
+    .x3.y1.z3 {
+      transform: translate3d($size/3, -$size/3, $size/3*2);
+    }
+    .x3.y2.z1 {
+      transform: translate3d($size/3, 0, -$size/3*2);
+    }
+    .x3.y2.z2 {
+      transform: translate3d($size/3, 0, 0);
+    }
+    .x3.y2.z3 {
+      transform: translate3d($size/3, 0, $size/3*2);
+    }
+    .x3.y3.z1 {
+      transform: translate3d($size/3, $size/3, -$size/3*2);
+    }
+    .x3.y3.z2 {
+      transform: translate3d($size/3, $size/3, 0);
+    }
+    .x3.y3.z3 {
+      transform: translate3d($size/3, $size/3, $size/3*2);
+    }
+  }
+}
+
+.rubik-wrap {
+  width: $size;
+  height: $size;
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d;
+  //transform: rotateX(-20deg) rotateY(200deg);
+  animation: rotate 10s infinite linear;
+}
+
+.rubik {
+  width: $size;
+  height: $size;
+  position: relative;
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d;
+  
+}
+
+.cube {
+  width: $size/3;
+  height: $size/3;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform .3s;
+  backface-visibility: hidden;
+
+  > div {
+    box-shadow: inset 0 0 3px 3px #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $size/3;
+    height: $size/3;
+    color: #000;
+    padding: 15px;
+    transition: transform .3s;
+    backface-visibility: hidden;
+    background: grey;
+  }
+}
+
+.front {
+  // background-color: blue;
+  transform: translateZ($size/6);
+  transform-origin: top left;
+}
+
+.right {
+  // background-color: orange;
+  transform: rotateY(90deg) translate(50%, 0%);
+  transform-origin: top right;
+}
+
+.left {
+  //background-color: red;
+  transform: rotateY(-90deg) translate(-50%, 0%);
+  transform-origin: top left;
+}
+
+.bottom {
+  //background-color: yellow;
+  transform: rotateX(-90deg) translate(0%, 50%);
+  transform-origin: bottom left;
+}
+
+.top {
+  //background-color: #fff;
+  transform: rotateX(90deg) translate(0%, -50%);
+  transform-origin: top left;
+}
+
+.back {
+  //background-color: green;
+  transform: rotateY(-180deg) translateZ($size/6);
+  transform-origin: top center;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+.x1 {
+  left: 0;
+}
+
+.x2 {
+  left: calc(100%/3);
+}
+.x3 {
+  left: calc((100%/3)*2);
+}
+
+.y1 {
+  top: 0;
+}
+
+.y2 {
+  top: calc(100%/3);
+}
+
+.y3 {
+  top: calc((100%/3)*2);
+}
+
+.z1 {
+  transform: translateZ(-$size/3);
+}
+
+.z2 {
+  
+}
+
+.z3 {
+  transform: translateZ($size/3);
+}
+
+.x1.y1.z1 {
+  .top {
+    background-color: #fff;
+  }
+  .left {
+    background-color: red;
+  }
+  .back {
+    background-color: green;
+  }
+}
+.x1.y1.z2 {
+  .top {
+    background-color: #fff;
+  }
+  .left {
+    background-color: red;
+  }
+}
+.x1.y1.z3 {
+  .front {
+    background-color: blue;
+  }
+  .top {
+    background-color: #fff;
+  }
+  .left {
+    background-color: red;
+  }
+}
+.x1.y2.z1 {
+  .left {
+    background-color: red;
+  }
+  .back {
+    background-color: green;
+  }
+}
+.x1.y2.z2 {
+  .left {
+    background-color: red;
+  }
+}
+.x1.y2.z3 {
+  .front {
+    background-color: blue;
+  }
+  .left {
+    background-color: red;
+  }
+  
+}
+.x1.y3.z1 {
+  .left {
+    background-color: red;
+  }
+  .bottom {
+    background-color: yellow;
+  }
+  .back {
+    background-color: green;
+  }
+}
+.x1.y3.z2 {
+  .left {
+    background-color: red;
+  }
+  .bottom {
+    background-color: yellow;
+  }
+}
+.x1.y3.z3 {
+  .front {
+    background-color: blue;
+  }
+  .left {
+    background-color: red;
+  }
+  .bottom {
+    background-color: yellow;
+  }
+}
+.x2.y1.z1 {
+  .top {
+    background-color: #fff;
+  }
+  .back {
+    background-color: green;
+  }
+}
+.x2.y1.z2 {
+  .top {
+    background-color: #fff;
+  }
+}
+.x2.y1.z3 {
+  .front {
+    background-color: blue;
+  }
+  .top {
+    background-color: #fff;
+  }
+}
+.x2.y2.z1 {
+  .back {
+    background-color: green;
+  }
+  .back {
+    background-color: green;
+  }
+}
+.x2.y2.z2 {
+}
+.x2.y2.z3 {
+  .front {
+    background-color: blue;
+  }
+}
+.x2.y3.z1 {
+  .bottom {
+    background-color: yellow;
+  }
+  .back {
+    background-color: green;
+  }
+}
+.x2.y3.z2 {
+  .bottom {
+    background-color: yellow;
+  }
+}
+.x2.y3.z3 {
+  .front {
+    background-color: blue;
+  }
+  .bottom {
+    background-color: yellow;
+  }
+}
+.x3.y1.z1 {
+  .right {
+    background-color: orange;
+  }
+  .top {
+    background-color: #fff;
+  }
+  .back {
+    background-color: green;
+  }
+}
+.x3.y1.z2 {
+  .right {
+    background-color: orange;
+  }
+  .top {
+    background-color: #fff;
+  }
+}
+.x3.y1.z3 {
+  .front {
+    background-color: blue;
+  }
+  .right {
+    background-color: orange;
+  }
+  .top {
+    background-color: #fff;
+  }
+}
+.x3.y2.z1 {
+  .right {
+    background-color: orange;
+  }
+  .back {
+    background-color: green;
+  }
+}
+.x3.y2.z2 {
+  .right {
+    background-color: orange;
+  }
+}
+.x3.y2.z3 {
+  .front {
+    background-color: blue;
+  }
+  .right {
+    background-color: orange;
+  }
+}
+.x3.y3.z1 {
+  .right {
+    background-color: orange;
+  }
+  .bottom {
+    background-color: yellow;
+  }
+  .back {
+    background-color: green;
+  }
+}
+.x3.y3.z2 {
+  .right {
+    background-color: orange;
+  }
+  .bottom {
+    background-color: yellow;
+  }
+}
+.x3.y3.z3 {
+  .front {
+    background-color: blue;
+  }
+  .right {
+    background-color: orange;
+  }
+  .bottom {
+    background-color: yellow;
+  }
+}
