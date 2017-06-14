@@ -1,0 +1,295 @@
+body {
+  padding: 0;
+  margin: 0; }
+
+* {
+  box-sizing: border-box; }
+
+.wrap {
+  background-color: #ccc;
+  height: 639px;
+  width: 639px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 3195px; }
+  .wrap:hover .x1.y1.z1 {
+    transform: translate3d(-71px, -71px, -142px); }
+  .wrap:hover .x1.y1.z2 {
+    transform: translate3d(-71px, -71px, 0); }
+  .wrap:hover .x1.y1.z3 {
+    transform: translate3d(-71px, -71px, 142px); }
+  .wrap:hover .x1.y2.z1 {
+    transform: translate3d(-71px, 0, -142px); }
+  .wrap:hover .x1.y2.z2 {
+    transform: translate3d(-71px, 0, 0); }
+  .wrap:hover .x1.y2.z3 {
+    transform: translate3d(-71px, 0, 142px); }
+  .wrap:hover .x1.y3.z1 {
+    transform: translate3d(-71px, 71px, -142px); }
+  .wrap:hover .x1.y3.z2 {
+    transform: translate3d(-71px, 71px, 0); }
+  .wrap:hover .x1.y3.z3 {
+    transform: translate3d(-71px, 71px, 142px); }
+  .wrap:hover .x2.y1.z1 {
+    transform: translate3d(0, -71px, -142px); }
+  .wrap:hover .x2.y1.z2 {
+    transform: translate3d(0, -71px, 0); }
+  .wrap:hover .x2.y1.z3 {
+    transform: translate3d(0, -71px, 142px); }
+  .wrap:hover .x2.y2.z1 {
+    transform: translate3d(0, 0, -142px); }
+  .wrap:hover .x2.y2.z2 {
+    transform: translate3d(0, 0, 0); }
+  .wrap:hover .x2.y2.z3 {
+    transform: translate3d(0, 0, 142px); }
+  .wrap:hover .x2.y3.z1 {
+    transform: translate3d(0, 71px, -142px); }
+  .wrap:hover .x2.y3.z2 {
+    transform: translate3d(0, 71px, 0); }
+  .wrap:hover .x2.y3.z3 {
+    transform: translate3d(0, 71px, 142px); }
+  .wrap:hover .x3.y1.z1 {
+    transform: translate3d(71px, -71px, -142px); }
+  .wrap:hover .x3.y1.z2 {
+    transform: translate3d(71px, -71px, 0); }
+  .wrap:hover .x3.y1.z3 {
+    transform: translate3d(71px, -71px, 142px); }
+  .wrap:hover .x3.y2.z1 {
+    transform: translate3d(71px, 0, -142px); }
+  .wrap:hover .x3.y2.z2 {
+    transform: translate3d(71px, 0, 0); }
+  .wrap:hover .x3.y2.z3 {
+    transform: translate3d(71px, 0, 142px); }
+  .wrap:hover .x3.y3.z1 {
+    transform: translate3d(71px, 71px, -142px); }
+  .wrap:hover .x3.y3.z2 {
+    transform: translate3d(71px, 71px, 0); }
+  .wrap:hover .x3.y3.z3 {
+    transform: translate3d(71px, 71px, 142px); }
+
+.rubik-wrap {
+  width: 213px;
+  height: 213px;
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d;
+  animation: rotate 10s infinite linear; }
+
+.rubik {
+  width: 213px;
+  height: 213px;
+  position: relative;
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d; }
+
+.cube {
+  width: 71px;
+  height: 71px;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform .3s;
+  backface-visibility: hidden; }
+  .cube > div {
+    box-shadow: inset 0 0 3px 3px #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 71px;
+    height: 71px;
+    color: #000;
+    padding: 15px;
+    transition: transform .3s;
+    backface-visibility: hidden;
+    background: grey; }
+
+.front {
+  transform: translateZ(35.5px);
+  transform-origin: top left; }
+
+.right {
+  transform: rotateY(90deg) translate(50%, 0%);
+  transform-origin: top right; }
+
+.left {
+  transform: rotateY(-90deg) translate(-50%, 0%);
+  transform-origin: top left; }
+
+.bottom {
+  transform: rotateX(-90deg) translate(0%, 50%);
+  transform-origin: bottom left; }
+
+.top {
+  transform: rotateX(90deg) translate(0%, -50%);
+  transform-origin: top left; }
+
+.back {
+  transform: rotateY(-180deg) translateZ(35.5px);
+  transform-origin: top center; }
+
+@keyframes rotate {
+  from {
+    transform: rotateX(0deg) rotateY(0deg); }
+  to {
+    transform: rotateX(360deg) rotateY(360deg); } }
+.x1 {
+  left: 0; }
+
+.x2 {
+  left: calc(100%/3); }
+
+.x3 {
+  left: calc((100%/3)*2); }
+
+.y1 {
+  top: 0; }
+
+.y2 {
+  top: calc(100%/3); }
+
+.y3 {
+  top: calc((100%/3)*2); }
+
+.z1 {
+  transform: translateZ(-71px); }
+
+.z3 {
+  transform: translateZ(71px); }
+
+.x1.y1.z1 .top {
+  background-color: #fff; }
+.x1.y1.z1 .left {
+  background-color: red; }
+.x1.y1.z1 .back {
+  background-color: green; }
+
+.x1.y1.z2 .top {
+  background-color: #fff; }
+.x1.y1.z2 .left {
+  background-color: red; }
+
+.x1.y1.z3 .front {
+  background-color: blue; }
+.x1.y1.z3 .top {
+  background-color: #fff; }
+.x1.y1.z3 .left {
+  background-color: red; }
+
+.x1.y2.z1 .left {
+  background-color: red; }
+.x1.y2.z1 .back {
+  background-color: green; }
+
+.x1.y2.z2 .left {
+  background-color: red; }
+
+.x1.y2.z3 .front {
+  background-color: blue; }
+.x1.y2.z3 .left {
+  background-color: red; }
+
+.x1.y3.z1 .left {
+  background-color: red; }
+.x1.y3.z1 .bottom {
+  background-color: yellow; }
+.x1.y3.z1 .back {
+  background-color: green; }
+
+.x1.y3.z2 .left {
+  background-color: red; }
+.x1.y3.z2 .bottom {
+  background-color: yellow; }
+
+.x1.y3.z3 .front {
+  background-color: blue; }
+.x1.y3.z3 .left {
+  background-color: red; }
+.x1.y3.z3 .bottom {
+  background-color: yellow; }
+
+.x2.y1.z1 .top {
+  background-color: #fff; }
+.x2.y1.z1 .back {
+  background-color: green; }
+
+.x2.y1.z2 .top {
+  background-color: #fff; }
+
+.x2.y1.z3 .front {
+  background-color: blue; }
+.x2.y1.z3 .top {
+  background-color: #fff; }
+
+.x2.y2.z1 .back {
+  background-color: green; }
+.x2.y2.z1 .back {
+  background-color: green; }
+
+.x2.y2.z3 .front {
+  background-color: blue; }
+
+.x2.y3.z1 .bottom {
+  background-color: yellow; }
+.x2.y3.z1 .back {
+  background-color: green; }
+
+.x2.y3.z2 .bottom {
+  background-color: yellow; }
+
+.x2.y3.z3 .front {
+  background-color: blue; }
+.x2.y3.z3 .bottom {
+  background-color: yellow; }
+
+.x3.y1.z1 .right {
+  background-color: orange; }
+.x3.y1.z1 .top {
+  background-color: #fff; }
+.x3.y1.z1 .back {
+  background-color: green; }
+
+.x3.y1.z2 .right {
+  background-color: orange; }
+.x3.y1.z2 .top {
+  background-color: #fff; }
+
+.x3.y1.z3 .front {
+  background-color: blue; }
+.x3.y1.z3 .right {
+  background-color: orange; }
+.x3.y1.z3 .top {
+  background-color: #fff; }
+
+.x3.y2.z1 .right {
+  background-color: orange; }
+.x3.y2.z1 .back {
+  background-color: green; }
+
+.x3.y2.z2 .right {
+  background-color: orange; }
+
+.x3.y2.z3 .front {
+  background-color: blue; }
+.x3.y2.z3 .right {
+  background-color: orange; }
+
+.x3.y3.z1 .right {
+  background-color: orange; }
+.x3.y3.z1 .bottom {
+  background-color: yellow; }
+.x3.y3.z1 .back {
+  background-color: green; }
+
+.x3.y3.z2 .right {
+  background-color: orange; }
+.x3.y3.z2 .bottom {
+  background-color: yellow; }
+
+.x3.y3.z3 .front {
+  background-color: blue; }
+.x3.y3.z3 .right {
+  background-color: orange; }
+.x3.y3.z3 .bottom {
+  background-color: yellow; }
+
+/*# sourceMappingURL=style.css.map */
